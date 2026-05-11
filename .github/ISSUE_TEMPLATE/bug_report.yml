@@ -1,0 +1,39 @@
+name: Bug Report
+description: Report a reproducible problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: List the smallest steps that reproduce the issue.
+      placeholder: |
+        1. Connect to server
+        2. Open library
+        3. Download book
+    validations:
+      required: true
+  - type: input
+    id: android
+    attributes:
+      label: Android Version
+      placeholder: "Android 14"
+  - type: input
+    id: kavita
+    attributes:
+      label: Kavita Version
+      placeholder: "0.9.0"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or Screenshots
+      description: Paste relevant logs. Do not include API keys.
