@@ -68,11 +68,12 @@ class OpdsClient @Inject constructor() {
 
     private fun fetchDocument(url: String): org.w3c.dom.Document {
         val request = Request.Builder().url(url).build()
-        val response = client.newCall(request).execute()
-        if (!response.isSuccessful) error("OPDS request failed with HTTP ${response.code}")
-        return response.body?.byteStream()?.use { input ->
-            xmlFactory().newDocumentBuilder().parse(input)
-        } ?: error("OPDS request returned an empty body")
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) error("HTTP ${response.code}")
+            return response.body?.byteStream()?.use { input ->
+                xmlFactory().newDocumentBuilder().parse(input)
+            } ?: error("empty response body")
+        }
     }
 
     private fun Element.toOpdsEntry(): OpdsEntry {

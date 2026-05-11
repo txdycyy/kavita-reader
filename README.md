@@ -88,6 +88,22 @@ The app first validates the key through Kavita's REST API using the `x-api-key` 
 
 HTTP servers are supported for local or self-hosted Kavita instances, but HTTPS is recommended when the server is exposed outside your private network.
 
+## Test a Server from Your Computer
+
+Before installing a new APK, you can test the same server credentials from your computer:
+
+```bash
+KAVITA_URL="http://host:5051/" KAVITA_TOKEN="your-key-or-opds-token" scripts/kavita_probe.sh
+```
+
+To inspect one OPDS library:
+
+```bash
+KAVITA_URL="http://host:5051/" KAVITA_TOKEN="your-token" KAVITA_LIBRARY_ID=10 scripts/kavita_probe.sh
+```
+
+The script reports whether REST Auth Key mode or OPDS fallback mode should be used.
+
 ## GitHub Actions
 
 The repository includes two workflows:

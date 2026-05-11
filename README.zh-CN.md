@@ -88,6 +88,22 @@ App 会先通过 Kavita REST API 和 `x-api-key` header 校验。如果失败，
 
 App 支持本地或自托管 Kavita 使用 HTTP 地址；如果服务器暴露到公网，建议使用 HTTPS。
 
+## 在电脑上测试服务器
+
+安装新 APK 之前，可以先在电脑上用同一组服务器地址和 token 做诊断：
+
+```bash
+KAVITA_URL="http://host:5051/" KAVITA_TOKEN="your-key-or-opds-token" scripts/kavita_probe.sh
+```
+
+如果要查看某个 OPDS 书库：
+
+```bash
+KAVITA_URL="http://host:5051/" KAVITA_TOKEN="your-token" KAVITA_LIBRARY_ID=10 scripts/kavita_probe.sh
+```
+
+脚本会告诉你当前凭据应该走 REST Auth Key 模式，还是 OPDS fallback 模式。
+
 ## GitHub Actions
 
 仓库包含两个 workflow：
