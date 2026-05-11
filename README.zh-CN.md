@@ -86,6 +86,8 @@ adb install app/build/outputs/apk/debug/app-debug.apk
 
 App 会先通过 Kavita REST API 和 `x-api-key` header 校验。如果失败，会继续尝试 `/api/opds/{token}`；如果 OPDS 目录可用，就使用 OPDS 浏览和下载 EPUB。
 
+App 支持本地或自托管 Kavita 使用 HTTP 地址；如果服务器暴露到公网，建议使用 HTTPS。
+
 ## GitHub Actions
 
 仓库包含两个 workflow：

@@ -86,6 +86,8 @@ In Kavita, create or copy an Auth Key/API Key from your user settings. In the ap
 
 The app first validates the key through Kavita's REST API using the `x-api-key` header. If that fails, it tries `/api/opds/{token}` and uses OPDS browsing/downloads when the OPDS catalog is available.
 
+HTTP servers are supported for local or self-hosted Kavita instances, but HTTPS is recommended when the server is exposed outside your private network.
+
 ## GitHub Actions
 
 The repository includes two workflows:
